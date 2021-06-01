@@ -1,0 +1,10 @@
+{
+  "extends": "../../../next.tsconfig.json",
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "noEmit": true,
+    "allowJs": true
+  },
+  "exclude": ["node_modules"]
+}

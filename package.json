@@ -7,6 +7,9 @@
       "packages/shared/*"
     ]
   },
+  "scripts": {
+    "build" : "lerna run build --since master"
+  },
   "devDependencies": {
     "lerna": "^4.0.0",
     "@babel/core": "^7.12.10",
