@@ -19,10 +19,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Index() {
-  const classes = useStyles();
-  const [firstNumber, setFirstNumber] = useState(0);
-  const [secondNumber, setSecondNumber] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const classes = useStyles()
+  const [firstNumber, setFirstNumber] = useState(0)
+  const [secondNumber, setSecondNumber] = useState(0)
   useEffect(() => {}, []);
   const checkIfNumber = (number: any) => {
     if (typeof number === 'number') {
