@@ -50,11 +50,6 @@ const navigationItems = [
     id: 'documents-navigation-item',
     icon: <DescriptionIcon />,
     text: 'Documents'
-  },
-  {
-    id: 'support-center-navigation-item',
-    icon: <HelpIcon />,
-    text: 'Support Center'
   }
 ]
 
