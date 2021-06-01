@@ -17,15 +17,15 @@ export const HeaderStyles = makeStyles(theme => ({
     maxWidth: 'auto'
   },
   navigationContainerShift: {
-    width: `calc(${DRAWER_WIDTH + theme.spacing(3)}px)`,
-    maxWidth: `calc(${DRAWER_WIDTH + theme.spacing(3)}px)`,
+    width: DRAWER_WIDTH,
+    maxWidth: DRAWER_WIDTH,
     [theme.breakpoints.down('sm')]: {
       width: 'auto',
       maxWidth: 'auto'
     }
   },
   navigationButton: {
-    marginRight: theme.spacing(1.5),
+    marginRight: theme.spacing(2),
     color: '#000000'
   },
   mainContainer: {

@@ -4,7 +4,8 @@ declare module '@material-ui/core/styles/createPalette' {
   // Add new common colors
   interface TypeBackground {
     primary: string
-    secondary: string
+    secondary: string,
+    footer: string
   }
 }
 
@@ -40,7 +41,8 @@ const theme = {
     background: {
       default: '#FFFFFF',
       primary: '#F7F9FC',
-      secondary: '#E1E6ED'
+      secondary: '#E1E6ED',
+      footer: '#000000'
     }
   },
   typography: {
@@ -48,88 +50,88 @@ const theme = {
       fontSize: '30px',
       fontWeight: 700,
       letterSpacing: '0',
-      lineHeight: '36pt'
+      lineHeight: '36px'
     },
     h2: {
       fontSize: '24px',
       fontWeight: 700,
       letterSpacing: '0',
-      lineHeight: '29pt'
+      lineHeight: '29px'
     },
     h3: {
       fontSize: '20px',
       fontWeight: 700,
       letterSpacing: '0',
-      lineHeight: '24pt'
+      lineHeight: '24px'
     },
     h4: {
       fontSize: '16px',
       fontWeight: 700,
       letterSpacing: '0',
-      lineHeight: '19pt'
+      lineHeight: '19px'
     },
     h5: {
       fontSize: '15px',
       fontWeight: 700,
       letterSpacing: '0',
-      lineHeight: '18pt'
+      lineHeight: '18px'
     },
     h6: {
       fontSize: '14px',
       fontWeight: 700,
       letterSpacing: '0',
-      lineHeight: '17pt'
+      lineHeight: '17px'
     },
     body1: {
       fontSize: '14px',
       fontWeight: 400,
       letterSpacing: '0',
-      lineHeight: '17pt'
+      lineHeight: '17px'
     },
     body2: {
       fontSize: '14px',
       fontWeight: 500,
       letterSpacing: '0',
-      lineHeight: '17pt',
+      lineHeight: '17px',
       color: '#8590A0'
     },
     subtitle1: {
       fontSize: '12px',
       fontWeight: 400,
       letterSpacing: '0',
-      lineHeight: '15pt'
+      lineHeight: '15px'
     },
     subtitle2: {
       fontSize: '12px',
       fontWeight: 500,
       letterSpacing: '0',
-      lineHeight: '15pt',
+      lineHeight: '15px',
       color: '#8590A0'
     },
     button: {
       fontSize: '15px',
       fontWeight: 400,
       letterSpacing: '0',
-      lineHeight: '18pt'
+      lineHeight: '18px'
     },
     caption: {
       fontSize: '16px',
       fontWeight: 700,
       letterSpacing: '0',
-      lineHeight: '19pt',
+      lineHeight: '19px',
       color: '#C4CAD3'
     },
     overline: {
       fontSize: '14px',
       fontWeight: 400,
       letterSpacing: '0',
-      lineHeight: '17pt'
+      lineHeight: '17px'
     },
     srOnly: {
       fontSize: '14px',
       fontWeight: 400,
       letterSpacing: '0',
-      lineHeight: '17pt'
+      lineHeight: '17px'
     },
     fontFamily: 'Lato'
   },

@@ -2,7 +2,6 @@
   "extends": "../../../next.tsconfig.json",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "compilerOptions": {
-    "jsx": "react",
     "baseUrl": "./src",
     "noEmit": true,
     "allowJs": true

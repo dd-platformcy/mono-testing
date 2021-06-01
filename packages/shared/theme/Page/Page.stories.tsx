@@ -9,8 +9,9 @@ export default {
 
 export const Default = () => (
   <Page
-    avatar="https://fanart.tv/fanart/movies/19995/hdmovielogo/avatar-51290d0678d4e.png"
-    title="Liquid Chemicals Company"
+    legalEntityAvatar="https://fanart.tv/fanart/movies/19995/hdmovielogo/avatar-51290d0678d4e.png"
+    legalEntityTitle="Liquid Chemicals Company"
+    title="Title"
   >
     <Typography paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt

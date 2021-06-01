@@ -1,25 +1,35 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
-import { DRAWER_WIDTH, APP_BAR_HEIGHT } from '../constants'
+import { DRAWER_WIDTH, APP_BAR_HEIGHT } from '../constants';
 
 export const NavigationStyles = makeStyles(theme => ({
   drawer: {
-    width: DRAWER_WIDTH,
-    flexShrink: 0
+    [theme.breakpoints.up('sm')]: {
+      width: DRAWER_WIDTH,
+      flexShrink: 0
+    }
   },
   drawerPaper: {
     width: DRAWER_WIDTH,
     height: '100%',
-    padding: `0px ${theme.spacing(3)}px ${theme.spacing(3)}px ${theme.spacing(3)}px`,
-    position: 'fixed',
-    top: APP_BAR_HEIGHT,
+    padding: `0 ${theme.spacing(3)}px 0 ${theme.spacing(3)}px`,
     border: 'none'
   },
+  drawerHeader: {
+    height: APP_BAR_HEIGHT,
+    display: 'flex',
+    alignItems: 'center'
+  },
+  drawerContent: {},
+  navigationButton: {
+    marginRight: theme.spacing(2),
+    color: '#000000'
+  },
   avatarBox: {
-    background: `${theme.palette.background.secondary} 0% 0% no-repeat padding-box`,
+    background: `${theme.palette.background.default} 0% 0% no-repeat padding-box`,
     width: '100%',
     height: '80px',
-    marginBottom: theme.spacing(1.5),
+    margin: `${theme.spacing(2)}px 0 ${theme.spacing(2)}px 0`,
     borderRadius: '20px'
   },
   avatar: {
@@ -31,10 +41,10 @@ export const NavigationStyles = makeStyles(theme => ({
     fontWeight: 'bold',
     font: 'normal normal bold 14px/17px Lato',
     letterSpacing: '0px',
-    marginBottom: theme.spacing(1.5)
+    margin: theme.spacing(2)
   },
   navigationItemsList: {
-    marginBottom: theme.spacing(1.5)
+    marginBottom: theme.spacing(2)
   },
   navigationItem: {
     marginBottom: theme.spacing(1),
@@ -42,7 +52,7 @@ export const NavigationStyles = makeStyles(theme => ({
     font: 'normal normal normal 14px/17px Lato',
     letterSpacing: '0px',
     '&.active': {
-      background: `${theme.palette.background.secondary} 0% 0% no-repeat padding-box`
+      background: `${theme.palette.background.default} 0% 0% no-repeat padding-box`
     }
   },
   navigationItemIcon: {
@@ -55,4 +65,4 @@ export const NavigationStyles = makeStyles(theme => ({
     width: '100%',
     font: 'normal normal 900 14px/17px Lato'
   }
-}))
+}));

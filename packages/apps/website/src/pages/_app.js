@@ -4,7 +4,6 @@ import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '@platform/theme/platformTheme';
-import { Page } from '@platform/theme/Page';
 
 function MyApp(props) {
   const { Component, pageProps } = props;
@@ -26,11 +25,10 @@ function MyApp(props) {
           content='minimum-scale=1, initial-scale=1, width=device-width'
         />
       </Head>
+      <CssBaseline />
+
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Page>
           <Component {...pageProps} />
-        </Page>
       </ThemeProvider>
     </React.Fragment>
   );

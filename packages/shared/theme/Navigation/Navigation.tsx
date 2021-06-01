@@ -1,5 +1,7 @@
 import React, { FunctionComponent, useState } from 'react'
 import clsx from 'clsx'
+import { isWidthDown } from '@material-ui/core/withWidth'
+import { useRouter } from 'next/router'
 import {
   Drawer,
   Avatar,
@@ -9,33 +11,42 @@ import {
   List,
   ListItem,
   ListItemIcon,
-  ListItemText
+  ListItemText,
+  Hidden,
+  IconButton
 } from '@material-ui/core'
 
 import { NavigationStyles } from './'
 import { PageContext } from '../Page'
+import MenuIcon from '@material-ui/icons/Menu'
+import withWidth from '@material-ui/core/withWidth';
+import { WithWidth } from '@material-ui/core/withWidth/withWidth'
 
-interface NavigationProps {
-  avatar?: string
-  title?: string
+interface NavigationProps extends WithWidth {
+  legalEntityAvatar?: string
+  legalEntityTitle?: string
   navigationItems: NavigationItemProps[]
 }
 
 interface NavigationItemProps {
   id: string
   icon: SvgIconProps
-  text: string
-  active?: boolean
+  text: string,
+  url?: string,
+  active?: boolean,
 }
 
-export const Navigation: FunctionComponent<NavigationProps> = ({
-  avatar,
-  title,
-  navigationItems
-}: NavigationProps) => {
+ const Navigation: FunctionComponent<NavigationProps> = ({
+   legalEntityAvatar,
+   legalEntityTitle,
+   navigationItems,
+   width
+ }: NavigationProps) => {
   const classes = NavigationStyles()
 
-  const { isNavigationOpen, setIsNavigationOpen } = React.useContext(PageContext)
+   const router = useRouter()
+
+   const { isNavigationOpen, setIsNavigationOpen } = React.useContext(PageContext)
 
   const handleMNavigationButtonClick = () => {
     setIsNavigationOpen(!isNavigationOpen)
@@ -45,8 +56,18 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
 
   const [activeItem, setActiveItem] = useState(activeNavigationItem?.id)
 
-  const handleMNavigationItemClick = (navigationItemId: string) => {
-    setActiveItem(navigationItemId)
+  const handleNavigationItemClick = (navigationItem: NavigationItemProps) => {
+    setActiveItem(navigationItem.id)
+
+    if(isWidthDown('xs', width))
+    {
+      setIsNavigationOpen(false)
+    }
+
+    if(navigationItem.url)
+    {
+      router.push(navigationItem.url).then()
+    }
   }
 
   const navigationListItem = (item: NavigationItemProps, index: number) => (
@@ -54,7 +75,7 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
       key={index}
       button
       className={clsx(classes.navigationItem, item.id === activeItem && 'active')}
-      onClick={() => handleMNavigationItemClick(item.id)}
+      onClick={() => handleNavigationItemClick(item)}
     >
       <ListItemIcon className={classes.navigationItemIcon}>
         {item.icon}
@@ -80,34 +101,67 @@ export const Navigation: FunctionComponent<NavigationProps> = ({
 
   const drawer = () => (
     <div>
-      <Box className={classes.avatarBox}>
-        {(avatar != null) &&
-          <Avatar alt={`${avatar} Avatar`} src={avatar} className={classes.avatar} />
-        }
-      </Box>
+      <div className={classes.drawerHeader}>
+        <IconButton
+          color="inherit"
+          aria-label="open menu"
+          onClick={handleMNavigationButtonClick}
+          edge="start"
+          className={classes.navigationButton}
+        >
+          <MenuIcon />
+        </IconButton>
+      </div>
 
-      {(title != null) &&
+      <div className={classes.drawerContent}>
+        <Box className={classes.avatarBox}>
+          {(legalEntityAvatar != null) &&
+          <Avatar alt={`${legalEntityTitle} Avatar`} src={legalEntityAvatar} className={classes.avatar} />
+          }
+        </Box>
+
+        {(legalEntityTitle != null) &&
         <Typography className={classes.title}>
-          {title}
+          {legalEntityTitle}
         </Typography>
-      }
+        }
 
-      {(navigationItems != null) && (navigationItems.length > 0) && navigationItemList()}
+        {(navigationItems != null) && (navigationItems.length > 0) && navigationItemList()}
+      </div>
     </div>
   )
 
   return (
-    <Drawer
-      variant="persistent"
-      anchor="left"
-      open={isNavigationOpen}
-      onClose={handleMNavigationButtonClick}
-      className={classes.drawer}
-      classes={{
-        paper: classes.drawerPaper
-      }}
-    >
-      {drawer()}
-    </Drawer>
+    <nav className={classes.drawer} aria-label="navigation items">
+      <Hidden smUp >
+        <Drawer
+          variant="temporary"
+          anchor="left"
+          open={isNavigationOpen}
+          onClose={handleMNavigationButtonClick}
+          className={classes.drawer}
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+        >
+          {drawer()}
+        </Drawer>
+      </Hidden>
+      <Hidden xsDown>
+        <Drawer
+          variant="persistent"
+          anchor="left"
+          open={isNavigationOpen}
+          onClose={handleMNavigationButtonClick}
+          className={classes.drawer}
+          classes={{
+            paper: classes.drawerPaper
+          }}
+        >
+          {drawer()}
+        </Drawer>
+      </Hidden>
+    </nav>
   )
 }
+export default withWidth()(Navigation);

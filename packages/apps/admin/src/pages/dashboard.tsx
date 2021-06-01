@@ -42,9 +42,37 @@ export default function Index() {
         <Typography variant='h4' component='h2'>
           This is the Admin App
         </Typography>
-      </div>
-      <div>
-        Testing
+
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={12} md={3}>
+            <TextField
+              fullWidth={true}
+              label='First Number'
+              onChange={e =>
+                setFirstNumber(checkIfNumber(parseInt(e.target.value)))
+              }
+            />
+          </Grid>
+          <Grid item xs={12} sm={12} md={3}>
+            <TextField
+              fullWidth
+              label='Second Number'
+              onChange={e =>
+                setSecondNumber(checkIfNumber(parseInt(e.target.value)))
+              }
+            />
+          </Grid>
+          <Grid item xs={12} sm={12} md={3}>
+            <Paper className={classes.paper}>
+              Difference is : {Utils.subtract(firstNumber, secondNumber)}
+            </Paper>
+          </Grid>
+          <Grid item xs={12} sm={12} md={3}>
+            <Paper className={classes.paper}>
+              Sum is : {Utils.sum(firstNumber, secondNumber)}
+            </Paper>
+          </Grid>
+        </Grid>
       </div>
     </Page>
   );

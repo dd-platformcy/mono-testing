@@ -12,6 +12,7 @@ import HelpIcon from '@material-ui/icons/Help'
 import { PageStyles } from './'
 import { Header } from '../Header'
 import { Navigation } from '../Navigation'
+import Typography from '@material-ui/core/Typography'
 
 const navigationItems = [
   {
@@ -58,18 +59,21 @@ const navigationItems = [
 ]
 
 interface PageProps {
-  avatar?: string
-  title?: string
+  legalEntityAvatar?: string
+  legalEntityTitle?: string,
+  title?: string,
   children?: any
 }
 
 export const PageContext = React.createContext({
   isNavigationOpen: false,
-  setIsNavigationOpen: (_isOpen: boolean) => {}
+  setIsNavigationOpen: (_isOpen: boolean) => {
+  }
 })
 
 export const Page: FunctionComponent<PageProps> = ({
-  avatar,
+  legalEntityAvatar,
+  legalEntityTitle,
   title,
   children
 }: PageProps) => {
@@ -77,7 +81,10 @@ export const Page: FunctionComponent<PageProps> = ({
 
   const [isNavigationOpen, setIsNavigationOpen] = useState(true)
 
-  const providerValue = { isNavigationOpen, setIsNavigationOpen }
+  const providerValue = {
+    isNavigationOpen,
+    setIsNavigationOpen
+  }
 
   return (
     <PageContext.Provider value={providerValue}>
@@ -85,17 +92,23 @@ export const Page: FunctionComponent<PageProps> = ({
         <Header />
 
         <Navigation
-          avatar={avatar}
-          title={title}
+          legalEntityAvatar={legalEntityAvatar}
+          legalEntityTitle={legalEntityTitle}
           navigationItems={navigationItems}
         />
 
         <div className={clsx(classes.content, {
           [classes.contentShift]: isNavigationOpen
         })}>
-          <div className={classes.navigationHeader} />
+          <div className={classes.drawerHeader} />
 
-          {children}
+          <Typography variant='h1' className={classes.pageTitle}>
+            {title}
+          </Typography>
+
+          <div className={classes.pageContent}>
+            {children}
+          </div>
         </div>
       </div>
     </PageContext.Provider>
