@@ -4,3 +4,7 @@ node_modules
 /packages/apps/website/.next/
 /out/
 /packages/apps/website/out/
+/packages/shared/functions/coverage/
+/packages/apps/admin/coverage/
+/packages/apps/website/coverage/
+/packages/apps/admin/out/
