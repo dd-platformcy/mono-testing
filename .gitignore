@@ -1,1 +1,3 @@
 node_modules
+/packages/apps/admin/.next/
+.idea

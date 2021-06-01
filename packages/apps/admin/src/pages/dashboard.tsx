@@ -43,6 +43,9 @@ export default function Index() {
           This is the Admin App
         </Typography>
       </div>
+      <div>
+        Testing
+      </div>
     </Page>
   );
 }
