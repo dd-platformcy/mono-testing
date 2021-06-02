@@ -1,6 +1,6 @@
 {
   "name": "@platform/website",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "dependencies": {
     "@platform/api": "^1.0.1",
     "@platform/functions": "^1.0.1",
