@@ -1,10 +1,10 @@
 {
   "name": "@platform/website",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "dependencies": {
     "@platform/api": "^1.0.1",
     "@platform/functions": "^1.0.1",
-    "@platform/theme": "^1.0.1",
+    "@platform/theme": "^1.0.2",
     "next": "10.1.3",
     "react": "17.0.2",
     "react-dom": "17.0.2"
