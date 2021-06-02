@@ -8,7 +8,7 @@
     ]
   },
   "scripts": {
-    "build" : "lerna run build --since master"
+    "build" : "lerna run build --since"
   },
   "devDependencies": {
     "lerna": "^4.0.0",
