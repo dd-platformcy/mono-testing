@@ -50,6 +50,11 @@ const navigationItems = [
     id: 'documents-navigation-item',
     icon: <DescriptionIcon />,
     text: 'Documents'
+  },
+  {
+    id: 'documents-navigation-item1',
+    icon: <DescriptionIcon />,
+    text: 'Documents'
   }
 ]
 
