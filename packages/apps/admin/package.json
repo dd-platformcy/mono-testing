@@ -1,6 +1,7 @@
 {
   "name": "@platform/admin",
   "version": "1.0.5",
+  "private": true,
   "dependencies": {
     "@platform/api": "^1.0.1",
     "@platform/functions": "^1.0.1",
