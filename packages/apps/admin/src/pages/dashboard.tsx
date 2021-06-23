@@ -69,7 +69,7 @@ export default function Index() {
           </Grid>
           <Grid item xs={12} sm={12} md={3}>
             <Paper className={classes.paper}>
-              Sum is : {Utils.sum(firstNumber, secondNumber)}
+              Sum is : {Utils.sum(firstNumber, secondNumber)} Souvlakia
             </Paper>
           </Grid>
         </Grid>
